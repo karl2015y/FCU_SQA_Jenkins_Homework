@@ -4,7 +4,7 @@ public class Discount {
 	private Identity identity;
 	private int hour;
 	private int min;
-	private double discount_price = 0;
+	private double discountPrice = 0;
 
 	public Discount(Identity identity, String dateTime) throws IllegalArgumentException {
 
@@ -29,19 +29,19 @@ public class Discount {
 
 	private void queryDiscount(Identity identity, int hour) {
 		if (identity.isMember()) {
-			discount_price = 0.5;
+			discountPrice = 0.5;
 		} else if (identity.isGroup()) {
-			discount_price = 0.7;
+			discountPrice = 0.7;
 		} else if (12 > identity.getAge() || identity.getAge() >= 60) {
-			discount_price = 0.8;
+			discountPrice = 0.8;
 		} else if (5 <= hour && hour < 7) {
-			discount_price = 0.8;
+			discountPrice = 0.8;
 		} else {
-			discount_price = 1;
+			discountPrice = 1;
 		}
 	}
 
 	public double getDiscount() {
-		return discount_price;
+		return discountPrice;
 	}
 }
